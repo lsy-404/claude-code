@@ -1,8 +1,8 @@
 /**
  * Download ripgrep binary from GitHub releases.
  *
- * Run automatically via `bun install` (postinstall hook),
- * or manually: `bun run scripts/download-ripgrep.ts [--force]`
+ * Run automatically via the package postinstall hook,
+ * or manually: `pnpm exec bun run scripts/download-ripgrep.ts [--force]`
  *
  * Idempotent — skips download if the binary already exists.
  * Use --force to re-download.
@@ -330,6 +330,6 @@ async function downloadAndExtract(): Promise<void> {
 downloadAndExtract().catch(error => {
   console.error(`[ripgrep] Download failed: ${error.message}`)
   console.error(`[ripgrep] You can install ripgrep manually: https://github.com/BurntSushi/ripgrep#installation`)
-  // Don't exit with error code — postinstall should not break bun install
+  // Don't exit with error code — postinstall should not break package installation
   process.exit(0)
 })

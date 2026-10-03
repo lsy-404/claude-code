@@ -10,38 +10,38 @@ This is a **reverse-engineered / decompiled** version of Anthropic's official Cl
 
 ```bash
 # Install dependencies
-bun install
+pnpm install --frozen-lockfile
 
 # Dev mode (runs cli.tsx with MACRO defines injected via -d flags)
-bun run dev
+pnpm run dev
 
 # Dev mode with debugger (set BUN_INSPECT=9229 to pick port)
-bun run dev:inspect
+pnpm run dev:inspect
 
 # Pipe mode
-echo "say hello" | bun run src/entrypoints/cli.tsx -p
+echo "say hello" | pnpm exec bun run src/entrypoints/cli.tsx -p
 
 # Build (code splitting, outputs dist/cli.js + ~450 chunk files)
-bun run build
+pnpm run build
 
 # Test
-bun test                  # run all tests
-bun test src/utils/__tests__/hash.test.ts   # run single file
-bun test --coverage       # with coverage report
+pnpm run test                  # run all tests
+pnpm run test src/utils/__tests__/hash.test.ts   # run single file
+pnpm run test --coverage       # with coverage report
 
 # Lint & Format (Biome)
-bun run lint              # check only
-bun run lint:fix          # auto-fix
-bun run format            # format all src/
+pnpm run lint              # check only
+pnpm run lint:fix          # auto-fix
+pnpm run format            # format all src/
 
 # Health check
-bun run health
+pnpm run health
 
 # Check unused exports
-bun run check:unused
+pnpm run check:unused
 
 # Docs dev server (Mintlify)
-bun run docs:dev
+pnpm run docs:dev
 ```
 
 详细的测试规范、覆盖状态和改进计划见 `docs/testing-spec.md`。
@@ -54,8 +54,8 @@ bun run docs:dev
 - **Build**: `build.ts` 执行 `Bun.build()` with `splitting: true`，入口 `src/entrypoints/cli.tsx`，输出 `dist/cli.js` + chunk files。默认启用 `AGENT_TRIGGERS_REMOTE`、`CHICAGO_MCP`、`VOICE_MODE` feature。构建后自动替换 `import.meta.require` 为 Node.js 兼容版本（产物 bun/node 都可运行）。
 - **Dev mode**: `scripts/dev.ts` 通过 Bun `-d` flag 注入 `MACRO.*` defines，运行 `src/entrypoints/cli.tsx`。默认启用 `BUDDY`、`TRANSCRIPT_CLASSIFIER`、`BRIDGE_MODE`、`AGENT_TRIGGERS_REMOTE`、`CHICAGO_MCP`、`VOICE_MODE` 六个 feature。
 - **Module system**: ESM (`"type": "module"`), TSX with `react-jsx` transform.
-- **Monorepo**: Bun workspaces — internal packages live in `packages/` resolved via `workspace:*`.
-- **Lint/Format**: Biome (`biome.json`)。`bun run lint` / `bun run lint:fix` / `bun run format`。
+- **Monorepo**: pnpm workspaces — internal packages live in `packages/` resolved via `workspace:*`.
+- **Lint/Format**: Biome (`biome.json`)。`pnpm run lint` / `pnpm run lint:fix` / `pnpm run format`。
 - **Defines**: 集中管理在 `scripts/defines.ts`。当前版本 `2.1.888`。
 
 ### Entry & Bootstrap
@@ -131,7 +131,7 @@ bun run docs:dev
 Feature flags control which functionality is enabled at runtime:
 
 - **在代码中使用**: 统一通过 `import { feature } from 'bun:bundle'` 导入，调用 `feature('FLAG_NAME')` 返回 `boolean`。**不要**在 `cli.tsx` 或其他文件里自己定义 `feature` 函数或覆盖这个 import。
-- **启用方式**: 通过环境变量 `FEATURE_<FLAG_NAME>=1`。例如 `FEATURE_BUDDY=1 bun run dev` 启用 BUDDY 功能。
+- **启用方式**: 通过环境变量 `FEATURE_<FLAG_NAME>=1`。例如 `FEATURE_BUDDY=1 pnpm run dev` 启用 BUDDY 功能。
 - **Dev 默认 features**: `BUDDY`、`TRANSCRIPT_CLASSIFIER`、`BRIDGE_MODE`、`AGENT_TRIGGERS_REMOTE`、`CHICAGO_MCP`、`VOICE_MODE`（见 `scripts/dev.ts`）。
 - **Build 默认 features**: `AGENT_TRIGGERS_REMOTE`、`CHICAGO_MCP`、`VOICE_MODE`（见 `build.ts`）。
 - **常见 flag**: `BUDDY`, `DAEMON`, `BRIDGE_MODE`, `BG_SESSIONS`, `PROACTIVE`, `KAIROS`, `VOICE_MODE`, `FORK_SUBAGENT`, `SSH_REMOTE`, `DIRECT_CONNECT`, `TEMPLATES`, `CHICAGO_MCP`, `BYOC_ENVIRONMENT_RUNNER`, `SELF_HOSTED_RUNNER`, `COORDINATOR_MODE`, `UDS_INBOX`, `LODESTONE`, `ABLATION_BASELINE` 等。

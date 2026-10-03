@@ -109,4 +109,4 @@ API 客户端支持 4 种 Provider：
 | CLI 启动 | `src/entrypoints/cli.tsx` | 注入 `feature()` polyfill（始终返回 false）、MACRO 全局变量 |
 | 命令定义 | `src/main.tsx` | Commander.js 解析参数，初始化 auth/analytics/policy |
 | 一次性初始化 | `src/entrypoints/init.ts` | 遥测配置、信任对话框 |
-| 管道模式 | `src/main.tsx` `-p` flag | `echo "say hello" \| bun run dev -p` |
+| 管道模式 | `src/main.tsx` `-p` flag | `echo "say hello" \| pnpm run dev -p` |

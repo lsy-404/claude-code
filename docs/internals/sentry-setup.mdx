@@ -25,20 +25,20 @@ Claude Code 支持通过 Sentry 捕获运行时异常并上报到你自己指定
 
 ```bash
 SENTRY_DSN=https://public_key@your-sentry.example.com/123 \
-bun run dev
+pnpm run dev
 ```
 
 ### Sentry Cloud (SaaS)
 
 ```bash
 SENTRY_DSN=https://public_key@o123456.ingest.sentry.io/789 \
-bun run dev
+pnpm run dev
 ```
 
 ### 不使用 Sentry（默认行为）
 
 ```bash
-bun run dev
+pnpm run dev
 # SENTRY_DSN 未设置，所有 sentry 函数为 no-op
 ```
 

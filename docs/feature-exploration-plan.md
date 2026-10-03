@@ -24,10 +24,10 @@
 
 ```bash
 # 单个 feature
-FEATURE_BUDDY=1 bun run dev
+FEATURE_BUDDY=1 pnpm run dev
 
 # 多个 feature 组合
-FEATURE_KAIROS=1 FEATURE_PROACTIVE=1 FEATURE_FORK_SUBAGENT=1 bun run dev
+FEATURE_KAIROS=1 FEATURE_PROACTIVE=1 FEATURE_FORK_SUBAGENT=1 pnpm run dev
 ```
 
 ---
@@ -55,7 +55,7 @@ FEATURE_KAIROS=1 FEATURE_PROACTIVE=1 FEATURE_FORK_SUBAGENT=1 bun run dev
 
 - **关键文件**：`src/assistant/`、`src/tools/BriefTool/`、`src/services/mcp/channelNotification.ts`、`src/memdir/memdir.ts`
 - **外部依赖**：Anthropic OAuth（claude.ai 订阅）、GrowthBook 特性门控
-- **探索命令**：`FEATURE_KAIROS=1 FEATURE_KAIROS_BRIEF=1 FEATURE_PROACTIVE=1 bun run dev`
+- **探索命令**：`FEATURE_KAIROS=1 FEATURE_KAIROS_BRIEF=1 FEATURE_PROACTIVE=1 pnpm run dev`
 
 **探索步骤**：
 1. 开启 feature，观察启动行为变化
@@ -81,7 +81,7 @@ FEATURE_KAIROS=1 FEATURE_PROACTIVE=1 FEATURE_FORK_SUBAGENT=1 bun run dev
 - **当前状态**：**完整实现**，包括录音、WebSocket 流、转录插入
 - **关键文件**：`src/voice/voiceModeEnabled.ts`、`src/hooks/useVoice.ts`、`src/services/voiceStreamSTT.ts`
 - **外部依赖**：Anthropic OAuth（非 API key）、macOS 原生音频或 SoX
-- **探索命令**：`FEATURE_VOICE_MODE=1 bun run dev`
+- **探索命令**：`FEATURE_VOICE_MODE=1 pnpm run dev`
 - **默认快捷键**：长按空格键录音
 
 **探索步骤**：
@@ -99,7 +99,7 @@ FEATURE_KAIROS=1 FEATURE_PROACTIVE=1 FEATURE_FORK_SUBAGENT=1 bun run dev
 - **当前状态**：**完整实现**，包括增量同步、冲突解决、密钥扫描、路径穿越防护
 - **关键文件**：`src/services/teamMemorySync/`（index、watcher、secretScanner）、`src/memdir/teamMemPaths.ts`
 - **外部依赖**：Anthropic OAuth + GitHub remote（`getGithubRepo()`）
-- **探索命令**：`FEATURE_TEAMMEM=1 bun run dev`
+- **探索命令**：`FEATURE_TEAMMEM=1 pnpm run dev`
 
 **探索步骤**：
 1. 确认项目有 GitHub remote
@@ -116,7 +116,7 @@ FEATURE_KAIROS=1 FEATURE_PROACTIVE=1 FEATURE_FORK_SUBAGENT=1 bun run dev
 - **当前状态**：核心逻辑实现，worker agent 模块为 stub
 - **关键文件**：`src/coordinator/coordinatorMode.ts`（系统 prompt 完整）、`src/coordinator/workerAgent.ts`（stub）
 - **限制**：编排者只能使用 AgentTool/TaskStop/SendMessage，不能直接操作文件
-- **探索命令**：`FEATURE_COORDINATOR_MODE=1 CLAUDE_CODE_COORDINATOR_MODE=1 bun run dev`
+- **探索命令**：`FEATURE_COORDINATOR_MODE=1 CLAUDE_CODE_COORDINATOR_MODE=1 pnpm run dev`
 
 **探索步骤**：
 1. 补全 `workerAgent.ts` stub
@@ -132,7 +132,7 @@ FEATURE_KAIROS=1 FEATURE_PROACTIVE=1 FEATURE_FORK_SUBAGENT=1 bun run dev
 - **当前状态**：v1（env-based）和 v2（env-less）实现均存在
 - **关键文件**：`src/bridge/bridgeEnabled.ts`、`src/bridge/replBridge.ts`（v1）、`src/bridge/remoteBridgeCore.ts`（v2）
 - **外部依赖**：claude.ai OAuth、GrowthBook 门控 `tengu_ccr_bridge`
-- **探索命令**：`FEATURE_BRIDGE_MODE=1 bun run dev`
+- **探索命令**：`FEATURE_BRIDGE_MODE=1 pnpm run dev`
 
 ---
 
@@ -142,7 +142,7 @@ FEATURE_KAIROS=1 FEATURE_PROACTIVE=1 FEATURE_FORK_SUBAGENT=1 bun run dev
 - **功能**：AgentTool 生成 fork 子 agent，继承父级完整对话上下文，优化 prompt cache
 - **当前状态**：**完整实现**（`forkSubagent.ts`），支持 worktree 隔离通知、递归防护
 - **关键文件**：`src/tools/AgentTool/forkSubagent.ts`
-- **探索命令**：`FEATURE_FORK_SUBAGENT=1 bun run dev`
+- **探索命令**：`FEATURE_FORK_SUBAGENT=1 pnpm run dev`
 
 ---
 
@@ -152,7 +152,7 @@ FEATURE_KAIROS=1 FEATURE_PROACTIVE=1 FEATURE_FORK_SUBAGENT=1 bun run dev
 - **功能**：解析用户指定的 token 预算（如 "spend 2M tokens"），自动持续工作直到达到目标
 - **当前状态**：解析器**完整实现**，支持简写和详细语法；QueryEngine 中的周转逻辑已连接
 - **关键文件**：`src/utils/tokenBudget.ts`、`src/QueryEngine.ts`
-- **探索命令**：`FEATURE_TOKEN_BUDGET=1 bun run dev`
+- **探索命令**：`FEATURE_TOKEN_BUDGET=1 pnpm run dev`
 
 ---
 
@@ -162,7 +162,7 @@ FEATURE_KAIROS=1 FEATURE_PROACTIVE=1 FEATURE_FORK_SUBAGENT=1 bun run dev
 - **功能**：将 MCP 服务器提供的 prompt 类型命令筛选为可调用技能
 - **当前状态**：**功能性实现**（config 门控筛选器）
 - **关键文件**：`src/commands.ts`（`getMcpSkillCommands()`）
-- **探索命令**：`FEATURE_MCP_SKILLS=1 bun run dev`
+- **探索命令**：`FEATURE_MCP_SKILLS=1 pnpm run dev`
 
 ---
 
@@ -172,7 +172,7 @@ FEATURE_KAIROS=1 FEATURE_PROACTIVE=1 FEATURE_FORK_SUBAGENT=1 bun run dev
 - **功能**：纯 TypeScript bash 命令 AST 解析器，用于 fail-closed 权限匹配
 - **当前状态**：**完整实现**（`bashParser.ts` ~2000行 + `ast.ts` ~400行）
 - **关键文件**：`src/utils/vendor/tree-sitter-bash/`
-- **探索命令**：`FEATURE_TREE_SITTER_BASH=1 bun run dev`
+- **探索命令**：`FEATURE_TREE_SITTER_BASH=1 pnpm run dev`
 
 ---
 
@@ -277,11 +277,11 @@ FEATURE_KAIROS=1 FEATURE_PROACTIVE=1 FEATURE_FORK_SUBAGENT=1 bun run dev
 
 | 优先级 | Feature | 命令 | 预期效果 |
 |--------|---------|------|----------|
-| 1 | BUDDY | `FEATURE_BUDDY=1 bun run dev` | `/buddy hatch` 生成伙伴 |
-| 2 | FORK_SUBAGENT | `FEATURE_FORK_SUBAGENT=1 bun run dev` | Agent 可生成上下文继承的子任务 |
-| 3 | TOKEN_BUDGET | `FEATURE_TOKEN_BUDGET=1 bun run dev` | 输入 "spend 500k tokens" 测试自动持续 |
-| 4 | TREE_SITTER_BASH | `FEATURE_TREE_SITTER_BASH=1 bun run dev` | 更精确的 bash 权限匹配 |
-| 5 | MCP_SKILLS | `FEATURE_MCP_SKILLS=1 bun run dev` | MCP 服务器 prompt 提升为技能 |
+| 1 | BUDDY | `FEATURE_BUDDY=1 pnpm run dev` | `/buddy hatch` 生成伙伴 |
+| 2 | FORK_SUBAGENT | `FEATURE_FORK_SUBAGENT=1 pnpm run dev` | Agent 可生成上下文继承的子任务 |
+| 3 | TOKEN_BUDGET | `FEATURE_TOKEN_BUDGET=1 pnpm run dev` | 输入 "spend 500k tokens" 测试自动持续 |
+| 4 | TREE_SITTER_BASH | `FEATURE_TREE_SITTER_BASH=1 pnpm run dev` | 更精确的 bash 权限匹配 |
+| 5 | MCP_SKILLS | `FEATURE_MCP_SKILLS=1 pnpm run dev` | MCP 服务器 prompt 提升为技能 |
 
 ### Phase 2：核心功能探索（需要 OAuth）
 
@@ -289,11 +289,11 @@ FEATURE_KAIROS=1 FEATURE_PROACTIVE=1 FEATURE_FORK_SUBAGENT=1 bun run dev
 
 | 优先级 | Feature | 命令 | 预期效果 |
 |--------|---------|------|----------|
-| 1 | TRANSCRIPT_CLASSIFIER | `FEATURE_TRANSCRIPT_CLASSIFIER=1 bun run dev` | Auto mode 自动激活 |
-| 2 | KAIROS 全套 | `FEATURE_KAIROS=1 FEATURE_KAIROS_BRIEF=1 FEATURE_KAIROS_CHANNELS=1 FEATURE_PROACTIVE=1 bun run dev` | 常驻助手 + Brief 输出 + 频道消息 |
-| 3 | VOICE_MODE | `FEATURE_VOICE_MODE=1 bun run dev` | 按空格说话 |
-| 4 | TEAMMEM | `FEATURE_TEAMMEM=1 bun run dev` | 团队记忆同步 |
-| 5 | COORDINATOR_MODE | `FEATURE_COORDINATOR_MODE=1 CLAUDE_CODE_COORDINATOR_MODE=1 bun run dev` | 多 agent 编排 |
+| 1 | TRANSCRIPT_CLASSIFIER | `FEATURE_TRANSCRIPT_CLASSIFIER=1 pnpm run dev` | Auto mode 自动激活 |
+| 2 | KAIROS 全套 | `FEATURE_KAIROS=1 FEATURE_KAIROS_BRIEF=1 FEATURE_KAIROS_CHANNELS=1 FEATURE_PROACTIVE=1 pnpm run dev` | 常驻助手 + Brief 输出 + 频道消息 |
+| 3 | VOICE_MODE | `FEATURE_VOICE_MODE=1 pnpm run dev` | 按空格说话 |
+| 4 | TEAMMEM | `FEATURE_TEAMMEM=1 pnpm run dev` | 团队记忆同步 |
+| 5 | COORDINATOR_MODE | `FEATURE_COORDINATOR_MODE=1 CLAUDE_CODE_COORDINATOR_MODE=1 pnpm run dev` | 多 agent 编排 |
 
 ### Phase 3：Stub 补全开发
 
@@ -323,7 +323,7 @@ FEATURE_FORK_SUBAGENT=1 \
 FEATURE_TOKEN_BUDGET=1 \
 FEATURE_TRANSCRIPT_CLASSIFIER=1 \
 FEATURE_BUDDY=1 \
-bun run dev
+pnpm run dev
 ```
 
 ### "多 Agent 协作"组合
@@ -334,7 +334,7 @@ FEATURE_FORK_SUBAGENT=1 \
 FEATURE_BRIDGE_MODE=1 \
 FEATURE_BG_SESSIONS=1 \
 CLAUDE_CODE_COORDINATOR_MODE=1 \
-bun run dev
+pnpm run dev
 ```
 
 ### "开发者增强"组合
@@ -345,7 +345,7 @@ FEATURE_TREE_SITTER_BASH=1 \
 FEATURE_TOKEN_BUDGET=1 \
 FEATURE_MCP_SKILLS=1 \
 FEATURE_CONTEXT_COLLAPSE=1 \
-bun run dev
+pnpm run dev
 ```
 
 ---

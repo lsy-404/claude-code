@@ -816,7 +816,7 @@ export function to1PEventFormat(
   // ship fields that never reached BQ.
   // Adding a field? Update the monorepo proto first (go/cc-logging):
   //   event_schemas/.../claude_code/v1/claude_code_internal_event.proto
-  // then run `bun run generate:proto` here.
+  // then run `pnpm exec bun run generate:proto` here.
   const env: EnvironmentMetadata = {
     platform: envContext.platform,
     platform_raw: envContext.platformRaw,

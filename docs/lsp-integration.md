@@ -23,7 +23,7 @@ LSP 插件安装后，后台的 LSP Server Manager 会自动加载并启动对�
 LSP Tool 需要通过环境变量显式启用，Claude 才能主动发起代码智能查询：
 
 ```bash
-ENABLE_LSP_TOOL=1 bun run dev
+ENABLE_LSP_TOOL=1 pnpm run dev
 ```
 
 不启用时，LSP 服务器仍然在后台运行并推送被动的诊断反馈（类型错误等）。

@@ -53,17 +53,17 @@ Make sure you're on the latest version of Bun, otherwise you'll run into all sor
 ### Install
 
 ```bash
-bun install
+pnpm install --frozen-lockfile
 ```
 
 ### Run
 
 ```bash
 # Dev mode — if you see version 888, it's working
-bun run dev
+pnpm run dev
 
 # Build
-bun run build
+pnpm run build
 ```
 
 The build uses code splitting (`build.ts`), outputting to `dist/` (entry `dist/cli.js` + ~450 chunk files).
@@ -111,7 +111,7 @@ You can also edit `~/.claude/settings.json` directly:
 All feature toggles are enabled via `FEATURE_<FLAG_NAME>=1` environment variables, for example:
 
 ```bash
-FEATURE_BUDDY=1 FEATURE_FORK_SUBAGENT=1 bun run dev
+FEATURE_BUDDY=1 FEATURE_FORK_SUBAGENT=1 pnpm run dev
 ```
 
 See [`docs/features/`](docs/features/) for detailed descriptions of each feature. Contributions welcome.
@@ -124,7 +124,7 @@ The TUI (REPL) mode requires a real terminal and cannot be launched directly via
 
 1. **Start inspect server in terminal**:
    ```bash
-   bun run dev:inspect
+   pnpm run dev:inspect
    ```
    This outputs an address like `ws://localhost:8888/xxxxxxxx`.
 

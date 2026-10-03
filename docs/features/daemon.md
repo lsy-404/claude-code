@@ -83,7 +83,7 @@ if (feature('DAEMON') && feature('BRIDGE_MODE')) {
 
 ```bash
 # 启用守护进程模式
-FEATURE_DAEMON=1 FEATURE_BRIDGE_MODE=1 bun run dev
+FEATURE_DAEMON=1 FEATURE_BRIDGE_MODE=1 pnpm run dev
 
 # 启动守护进程
 claude daemon

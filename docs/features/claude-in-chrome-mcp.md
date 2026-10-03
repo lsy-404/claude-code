@@ -19,14 +19,14 @@ Claude in Chrome 让 Claude Code 直接控制你的 Chrome 浏览器。你可以
 | Claude Code 订阅 | 需要 Claude Pro、Max 或 Team 订阅，浏览器插件功能不向免费用户开放 |
 | Chrome 浏览器 | 需已安装 Google Chrome |
 | Claude in Chrome 扩展 | 从 Chrome Web Store 安装（`claude.ai/chrome`） |
-| Claude Code CLI | 已通过 `bun run dev` 或构建产物运行 |
+| Claude Code CLI | 已通过 `pnpm run dev` 或构建产物运行 |
 
 ## 3. 启用方式
 
 ### Dev 模式
 
 ```bash
-bun run dev -- --chrome
+pnpm run dev --chrome
 ```
 
 启动后 Claude 会自动检测 Chrome 扩展是否已安装，并注册浏览器控制工具。
@@ -40,7 +40,7 @@ node dist/cli.js --chrome
 ### 禁用
 
 ```bash
-bun run dev -- --no-chrome
+pnpm run dev --no-chrome
 ```
 
 或在 REPL 中通过 `/chrome` 命令切换启用/禁用状态。

@@ -89,10 +89,10 @@ bashPermissions.ts 权限检查
 
 ```bash
 # 启用 feature
-FEATURE_BASH_CLASSIFIER=1 bun run dev
+FEATURE_BASH_CLASSIFIER=1 pnpm run dev
 
 # 配合 TREE_SITTER_BASH 使用（AST + LLM 双重安全）
-FEATURE_BASH_CLASSIFIER=1 FEATURE_TREE_SITTER_BASH=1 bun run dev
+FEATURE_BASH_CLASSIFIER=1 FEATURE_TREE_SITTER_BASH=1 pnpm run dev
 ```
 
 ## 六、文件索引

@@ -88,13 +88,13 @@ SleepTool 等待 [需要实现]
 
 ```bash
 # 单独启用 proactive
-FEATURE_PROACTIVE=1 bun run dev
+FEATURE_PROACTIVE=1 pnpm run dev
 
 # 通过 KAIROS 间接启用
-FEATURE_KAIROS=1 bun run dev
+FEATURE_KAIROS=1 pnpm run dev
 
 # 组合使用
-FEATURE_PROACTIVE=1 FEATURE_KAIROS=1 FEATURE_KAIROS_BRIEF=1 bun run dev
+FEATURE_PROACTIVE=1 FEATURE_KAIROS=1 FEATURE_KAIROS_BRIEF=1 pnpm run dev
 ```
 
 ## 六、文件索引

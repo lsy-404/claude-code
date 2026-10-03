@@ -140,7 +140,7 @@ sessionRunner 创建/恢复 REPL session
 
 ```bash
 # 最小启用（常驻助手 + Brief）
-FEATURE_KAIROS=1 FEATURE_KAIROS_BRIEF=1 bun run dev
+FEATURE_KAIROS=1 FEATURE_KAIROS_BRIEF=1 pnpm run dev
 
 # 全功能启用
 FEATURE_KAIROS=1 \
@@ -149,10 +149,10 @@ FEATURE_KAIROS_CHANNELS=1 \
 FEATURE_KAIROS_PUSH_NOTIFICATION=1 \
 FEATURE_KAIROS_GITHUB_WEBHOOKS=1 \
 FEATURE_PROACTIVE=1 \
-bun run dev
+pnpm run dev
 
 # 配合 Token Budget 使用
-FEATURE_KAIROS=1 FEATURE_TOKEN_BUDGET=1 bun run dev
+FEATURE_KAIROS=1 FEATURE_TOKEN_BUDGET=1 pnpm run dev
 ```
 
 ## 六、外部依赖

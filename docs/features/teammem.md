@@ -139,7 +139,7 @@ batchDeltaByBytes(delta)
 
 ```bash
 # 启用 feature
-FEATURE_TEAMMEM=1 bun run dev
+FEATURE_TEAMMEM=1 pnpm run dev
 
 # 前提条件：
 # 1. 已通过 Anthropic OAuth 登录

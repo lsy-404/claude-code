@@ -2,7 +2,7 @@
  * Integration test for BingSearchAdapter — hits the real Bing search.
  *
  * Usage:
- *   bun run src/tools/WebSearchTool/__tests__/bingAdapter.integration.ts
+ *   pnpm exec bun run src/tools/WebSearchTool/__tests__/bingAdapter.integration.ts
  *
  * Optional env vars:
  *   BING_QUERY  — search query (default: "Claude AI Anthropic")

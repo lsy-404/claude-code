@@ -174,7 +174,7 @@ isForkSubagentEnabled() && !subagent_type?
 
 ```bash
 # 启用 feature
-FEATURE_FORK_SUBAGENT=1 bun run dev
+FEATURE_FORK_SUBAGENT=1 pnpm run dev
 
 # 在 REPL 中使用（不指定 subagent_type 即走 fork）
 # Agent({ prompt: "研究这个模块的结构" })

@@ -116,13 +116,13 @@ sessionRunner 创建 REPL session
 
 ```bash
 # 启用 bridge mode
-FEATURE_BRIDGE_MODE=1 bun run dev
+FEATURE_BRIDGE_MODE=1 pnpm run dev
 
 # 从 claude.ai/code 远程连接
 # 在 web 界面选择已注册的环境
 
 # 配合 DAEMON 使用（后台守护）
-FEATURE_BRIDGE_MODE=1 FEATURE_DAEMON=1 bun run dev
+FEATURE_BRIDGE_MODE=1 FEATURE_DAEMON=1 pnpm run dev
 ```
 
 ## 五、外部依赖

@@ -94,7 +94,7 @@ const fetchMcpSkillsForClient = feature('MCP_SKILLS')
 
 ```bash
 # 启用 feature
-FEATURE_MCP_SKILLS=1 bun run dev
+FEATURE_MCP_SKILLS=1 pnpm run dev
 
 # 前提条件：
 # 1. 配置了支持 skill:// 资源的 MCP 服务器

@@ -40,7 +40,7 @@ const DEFAULT_FEATURES = [
 ];
 
 // Any env var matching FEATURE_<NAME>=1 will also enable that feature.
-// e.g. FEATURE_PROACTIVE=1 bun run dev
+// e.g. FEATURE_PROACTIVE=1 pnpm run dev
 const envFeatures = Object.entries(process.env)
     .filter(([k]) => k.startsWith("FEATURE_"))
     .map(([k]) => k.replace("FEATURE_", ""));

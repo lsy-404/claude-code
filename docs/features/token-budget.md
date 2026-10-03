@@ -175,7 +175,7 @@ query() 函数内：
 
 ```bash
 # 启用 feature
-FEATURE_TOKEN_BUDGET=1 bun run dev
+FEATURE_TOKEN_BUDGET=1 pnpm run dev
 
 # 在 prompt 中使用
 > +500k 重构所有测试文件

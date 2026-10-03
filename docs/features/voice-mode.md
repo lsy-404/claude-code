@@ -98,7 +98,7 @@ WebSocket 连接到 Anthropic STT 端点
 
 ```bash
 # 启用 feature
-FEATURE_VOICE_MODE=1 bun run dev
+FEATURE_VOICE_MODE=1 pnpm run dev
 
 # 在 REPL 中使用
 # 1. 确保已通过 OAuth 登录（claude.ai 订阅）

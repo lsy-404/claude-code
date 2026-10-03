@@ -3,7 +3,7 @@
  * Verify GrowthBook gate defaults and compile-time feature flags.
  *
  * Usage:
- *   bun run scripts/verify-gates.ts
+ *   pnpm exec bun run scripts/verify-gates.ts
  *
  * This script checks that LOCAL_GATE_DEFAULTS are being returned correctly
  * when GrowthBook is not connected, and that compile-time feature flags
@@ -104,4 +104,4 @@ if (fail > 0) {
 
 console.log('\n\x1b[32mAll GrowthBook gates returning expected local defaults.\x1b[0m')
 console.log('\nNote: Compile-time feature() flags cannot be verified in this script.')
-console.log('Use "bun run dev" and test manually for features with [needs feature()] markers.')
+console.log('Use "pnpm run dev" and test manually for features with [needs feature()] markers.')

@@ -7,7 +7,6 @@ coverage
 .idea
 .vscode
 *.suo
-*.lock
 src/utils/vendor/
 
 # AI tool runtime directories

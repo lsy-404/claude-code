@@ -8,7 +8,7 @@
 |----|------|
 | 测试框架 | `bun:test` |
 | 断言/Mock | `bun:test` 内置 |
-| 覆盖率 | `bun test --coverage` |
+| 覆盖率 | `pnpm run test --coverage` |
 | CI | GitHub Actions，push/PR 到 main 自动运行 |
 
 ## 2. 测试层次

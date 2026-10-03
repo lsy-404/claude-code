@@ -2,7 +2,7 @@
 import { feature } from 'bun:bundle'
 
 // Runtime fallback for MACRO.* when not injected by build/dev defines.
-// This happens when running cli.tsx directly (not via `bun run dev` or built dist/).
+// This happens when running cli.tsx directly (not via `pnpm run dev` or built dist/).
 if (typeof globalThis.MACRO === 'undefined') {
   ;(globalThis as any).MACRO = {
     VERSION: process.env.CLAUDE_CODE_VERSION || '2.1.888',

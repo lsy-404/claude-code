@@ -31,7 +31,7 @@
   - [x] QueryGuard 并发控制：idle → running → idle，防止重复查询
   - [x] 渲染：Transcript 模式（只读历史）/ Prompt 模式（Messages + PermissionRequest + PromptInput）
 
-**数据流**：`bun run dev` → `package.json scripts.dev` → `bun run src/entrypoints/cli.tsx` → 快速路径检查 → `main.tsx:main()` → `launchRepl()` → `<App><REPL /></App>`
+**数据流**：`pnpm run dev` → `package.json scripts.dev` → `pnpm exec bun run src/entrypoints/cli.tsx` → 快速路径检查 → `main.tsx:main()` → `launchRepl()` → `<App><REPL /></App>`
 
 ---
 

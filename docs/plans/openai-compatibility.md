@@ -28,28 +28,28 @@ CLAUDE_CODE_USE_OPENAI=1 \
 OPENAI_API_KEY=ollama \
 OPENAI_BASE_URL=http://localhost:11434/v1 \
 OPENAI_MODEL=qwen2.5-coder-32b \
-bun run dev
+pnpm run dev
 
 # DeepSeek（自动支持 Thinking）
 CLAUDE_CODE_USE_OPENAI=1 \
 OPENAI_API_KEY=sk-xxx \
 OPENAI_BASE_URL=https://api.deepseek.com/v1 \
 OPENAI_MODEL=deepseek-chat \
-bun run dev
+pnpm run dev
 
 # vLLM
 CLAUDE_CODE_USE_OPENAI=1 \
 OPENAI_API_KEY=token-abc123 \
 OPENAI_BASE_URL=http://localhost:8000/v1 \
 OPENAI_MODEL=Qwen/Qwen2.5-Coder-32B-Instruct \
-bun run dev
+pnpm run dev
 
 # One API / LiteLLM
 CLAUDE_CODE_USE_OPENAI=1 \
 OPENAI_API_KEY=sk-your-key \
 OPENAI_BASE_URL=https://your-one-api.example.com/v1 \
 OPENAI_MODEL=gpt-4o \
-bun run dev
+pnpm run dev
 
 # 自定义模型映射（使用家族变量）
 CLAUDE_CODE_USE_OPENAI=1 \
@@ -57,7 +57,7 @@ OPENAI_API_KEY=sk-xxx \
 OPENAI_BASE_URL=https://my-gateway.example.com/v1 \
 OPENAI_DEFAULT_SONNET_MODEL="gpt-4o-2024-11-20" \
 OPENAI_DEFAULT_HAIKU_MODEL="gpt-4o-mini" \
-bun run dev
+pnpm run dev
 ```
 
 ## 架构
@@ -352,13 +352,13 @@ Anthropic: message_start.message.usage.cache_read_input_tokens = 800
 
 ```bash
 # 运行所有 OpenAI 适配层测试
-bun test src/services/api/openai/__tests__/
+pnpm run test src/services/api/openai/__tests__/
 
 # 单独运行
-bun test src/services/api/openai/__tests__/streamAdapter.test.ts     # 14 tests（含 thinking + caching）
-bun test src/services/api/openai/__tests__/convertMessages.test.ts   # 10 tests
-bun test src/services/api/openai/__tests__/convertTools.test.ts      # 7 tests
-bun test src/services/api/openai/__tests__/modelMapping.test.ts      # 6 tests
+pnpm run test src/services/api/openai/__tests__/streamAdapter.test.ts     # 14 tests（含 thinking + caching）
+pnpm run test src/services/api/openai/__tests__/convertMessages.test.ts   # 10 tests
+pnpm run test src/services/api/openai/__tests__/convertTools.test.ts      # 7 tests
+pnpm run test src/services/api/openai/__tests__/modelMapping.test.ts      # 6 tests
 ```
 
 当前测试覆盖：**39 tests / 73 assertions / 0 fail**。
@@ -392,27 +392,27 @@ bun test src/services/api/openai/__tests__/modelMapping.test.ts      # 6 tests
 
 ```bash
 # 1. 安装依赖
-bun install
+pnpm install --frozen-lockfile
 
 # 2. 运行单元测试
-bun test src/services/api/openai/__tests__/
+pnpm run test src/services/api/openai/__tests__/
 
 # 3. 连接实际端点（以 Ollama 为例）
 CLAUDE_CODE_USE_OPENAI=1 \
 OPENAI_API_KEY=ollama \
 OPENAI_BASE_URL=http://localhost:11434/v1 \
 OPENAI_MODEL=qwen2.5-coder-32b \
-bun run dev
+pnpm run dev
 
 # 4. 连接 DeepSeek（测试 thinking 支持）
 CLAUDE_CODE_USE_OPENAI=1 \
 OPENAI_API_KEY=sk-xxx \
 OPENAI_BASE_URL=https://api.deepseek.com/v1 \
 OPENAI_MODEL=deepseek-reasoner \
-bun run dev
+pnpm run dev
 
 # 5. 确认现有测试不受影响
-bun test  # 无 CLAUDE_CODE_USE_OPENAI 时走原有路径
+pnpm run test  # 无 CLAUDE_CODE_USE_OPENAI 时走原有路径
 ```
 
 ## 代码统计

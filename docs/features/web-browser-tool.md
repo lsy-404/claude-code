@@ -56,7 +56,7 @@ WebBrowserPanel 在 REPL 侧边显示浏览器状态
 ## 五、使用方式
 
 ```bash
-FEATURE_WEB_BROWSER_TOOL=1 bun run dev
+FEATURE_WEB_BROWSER_TOOL=1 pnpm run dev
 ```
 
 ## 六、文件索引

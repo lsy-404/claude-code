@@ -88,7 +88,7 @@ steps:
 
 ```bash
 # 启用 feature（需要补全后才能真正使用）
-FEATURE_WORKFLOW_SCRIPTS=1 bun run dev
+FEATURE_WORKFLOW_SCRIPTS=1 pnpm run dev
 ```
 
 ## 六、文件索引

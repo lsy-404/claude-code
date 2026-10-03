@@ -51,7 +51,7 @@ DEFAULT_RELEASE_BASE=https://ghproxy.net/https://github.com/microsoft/ripgrep-pr
 ### 📥 安装
 
 ```bash
-bun install
+pnpm install --frozen-lockfile
 ```
 
 ⚠️ 国内对 github 网络较差的,可以使用这个环境变量
@@ -64,10 +64,10 @@ DEFAULT_RELEASE_BASE=https://ghproxy.net/https://github.com/microsoft/ripgrep-pr
 
 ```bash
 # 开发模式, 看到版本号 888 说明就是对了
-bun run dev
+pnpm run dev
 
 # 构建
-bun run build
+pnpm run build
 ```
 
 构建采用 code splitting 多文件打包（`build.ts`），产物输出到 `dist/` 目录（入口 `dist/cli.js` + 约 450 个 chunk 文件）。
@@ -101,7 +101,7 @@ bun run build
 所有功能开关通过 `FEATURE_<FLAG_NAME>=1` 环境变量启用，例如：
 
 ```bash
-FEATURE_BUDDY=1 FEATURE_FORK_SUBAGENT=1 bun run dev
+FEATURE_BUDDY=1 FEATURE_FORK_SUBAGENT=1 pnpm run dev
 ```
 
 各 Feature 的详细说明见 [`docs/features/`](docs/features/) 目录，欢迎投稿补充。
@@ -114,7 +114,7 @@ TUI (REPL) 模式需要真实终端，无法直接通过 VS Code launch 启动�
 
 1. **终端启动 inspect 服务**：
    ```bash
-   bun run dev:inspect
+   pnpm run dev:inspect
    ```
    会输出类似 `ws://localhost:8888/xxxxxxxx` 的地址。
 

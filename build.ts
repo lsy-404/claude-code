@@ -95,7 +95,7 @@ if (!rgScript.success) {
   for (const log of rgScript.logs) {
     console.error(log)
   }
-  // Non-fatal — postinstall fallback to bun run scripts/download-ripgrep.ts
+  // Non-fatal — postinstall fallback to pnpm exec bun run scripts/download-ripgrep.ts
 } else {
   console.log(`Bundled download-ripgrep script to ${outdir}/`)
 }

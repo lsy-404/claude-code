@@ -1,12 +1,12 @@
 # 第一阶段：启动流程详解
 
-> 从 `bun run dev` 到用户看到交互界面的完整路径
+> 从 `pnpm run dev` 到用户看到交互界面的完整路径
 
 ## 启动链路总览
 
 ```
-bun run dev
-  → package.json scripts.dev: "bun run src/entrypoints/cli.tsx"
+pnpm run dev
+  → package.json scripts.dev: "pnpm exec bun run src/entrypoints/cli.tsx"
     → cli.tsx: polyfill 注入 + 快速路径检查
       → import("../main.jsx") → cliMain()
         → main.tsx: main() → run()

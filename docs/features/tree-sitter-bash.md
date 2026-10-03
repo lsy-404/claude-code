@@ -144,10 +144,10 @@ astRoot = null
 
 ```bash
 # 激活 AST 解析用于权限检查
-FEATURE_TREE_SITTER_BASH=1 bun run dev
+FEATURE_TREE_SITTER_BASH=1 pnpm run dev
 
 # Shadow 模式（仅遥测，不影响行为）
-FEATURE_TREE_SITTER_BASH_SHADOW=1 bun run dev
+FEATURE_TREE_SITTER_BASH_SHADOW=1 pnpm run dev
 ```
 
 ## 六、文件索引

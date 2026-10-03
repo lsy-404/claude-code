@@ -27,13 +27,13 @@ Claude Code 的 GrowthBook 系统支持通过环境变量连接自定义 GrowthB
 ```bash
 CLAUDE_GB_ADAPTER_URL=https://gb.example.com/ \
 CLAUDE_GB_ADAPTER_KEY=sdk-abc123 \
-bun run dev
+pnpm run dev
 ```
 
 ### 不使用 GrowthBook（默认行为）
 
 ```bash
-bun run dev
+pnpm run dev
 # 所有 getFeatureValue_CACHED_MAY_BE_STALE("xxx", defaultValue) 直接返回 defaultValue
 ```
 

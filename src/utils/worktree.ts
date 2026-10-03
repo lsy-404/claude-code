@@ -588,7 +588,7 @@ async function performPostCreationSetup(
   await copyWorktreeIncludeFiles(repoRoot, worktreePath)
 
   // The core.hooksPath config-set above is fragile: husky's prepare script
-  // (`git config core.hooksPath .husky`) runs on every `bun install` and
+  // (`git config core.hooksPath .husky`) runs on every `pnpm install` and
   // resets the SHARED .git/config value back to relative, causing each
   // worktree to resolve to its OWN .husky/ again. The attribution hook
   // file isn't tracked (it's in .git/info/exclude), so fresh worktrees

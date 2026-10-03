@@ -57,7 +57,7 @@ async function checkCodeSize() {
 // ---------------------------------------------------------------------------
 async function checkLint() {
 	try {
-		const result = await $`bunx biome check src/ 2>&1`.quiet().nothrow().text();
+		const result = await $`pnpm exec biome check src/ 2>&1`.quiet().nothrow().text();
 		const errorMatch = result.match(/Found (\d+) errors?/);
 		const warnMatch = result.match(/Found (\d+) warnings?/);
 		const errors = errorMatch ? Number.parseInt(errorMatch[1]) : 0;
@@ -74,7 +74,7 @@ async function checkLint() {
 // ---------------------------------------------------------------------------
 async function checkTests() {
 	try {
-		const result = await $`bun test 2>&1`.quiet().nothrow().text();
+		const result = await $`pnpm run test 2>&1`.quiet().nothrow().text();
 		const passMatch = result.match(/(\d+) pass/);
 		const failMatch = result.match(/(\d+) fail/);
 		const pass = passMatch ? Number.parseInt(passMatch[1]) : 0;
@@ -91,7 +91,7 @@ async function checkTests() {
 // ---------------------------------------------------------------------------
 async function checkUnused() {
 	try {
-		const result = await $`bunx knip-bun 2>&1`.quiet().nothrow().text();
+		const result = await $`pnpm exec knip-bun 2>&1`.quiet().nothrow().text();
 		const unusedFiles = result.match(/Unused files \((\d+)\)/);
 		const unusedExports = result.match(/Unused exports \((\d+)\)/);
 		const unusedDeps = result.match(/Unused dependencies \((\d+)\)/);
@@ -108,7 +108,7 @@ async function checkUnused() {
 // ---------------------------------------------------------------------------
 async function checkBuild() {
 	try {
-		const result = await $`bun run build 2>&1`.quiet().nothrow();
+		const result = await $`pnpm run build 2>&1`.quiet().nothrow();
 		if (result.exitCode === 0) {
 			// 获取产物大小
 			const stat = Bun.file("dist/cli.js");

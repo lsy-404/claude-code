@@ -88,7 +88,7 @@ processUserInput 检测 "ultraplan"
 
 ```bash
 # 启用 feature
-FEATURE_ULTRAPLAN=1 bun run dev
+FEATURE_ULTRAPLAN=1 pnpm run dev
 
 # 在 REPL 中使用
 # > ultraplan 重构认证模块

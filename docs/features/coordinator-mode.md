@@ -19,7 +19,7 @@ COORDINATOR_MODE 将 CLI 变为"编排者"角色。编排者不直接操作文�
 ### 启用方式
 
 ```bash
-FEATURE_COORDINATOR_MODE=1 CLAUDE_CODE_COORDINATOR_MODE=1 bun run dev
+FEATURE_COORDINATOR_MODE=1 CLAUDE_CODE_COORDINATOR_MODE=1 pnpm run dev
 ```
 
 需要同时设置 feature flag 和环境变量。`CLAUDE_CODE_COORDINATOR_MODE` 可在会话恢复时自动切换（`matchSessionMode`）。
@@ -131,15 +131,15 @@ export function isCoordinatorMode(): boolean {
 
 ```bash
 # 基本启用
-FEATURE_COORDINATOR_MODE=1 CLAUDE_CODE_COORDINATOR_MODE=1 bun run dev
+FEATURE_COORDINATOR_MODE=1 CLAUDE_CODE_COORDINATOR_MODE=1 pnpm run dev
 
 # 配合 Fork Subagent
 FEATURE_COORDINATOR_MODE=1 FEATURE_FORK_SUBAGENT=1 \
-CLAUDE_CODE_COORDINATOR_MODE=1 bun run dev
+CLAUDE_CODE_COORDINATOR_MODE=1 pnpm run dev
 
 # Simple 模式（worker 只有 Bash/Read/Edit）
 FEATURE_COORDINATOR_MODE=1 CLAUDE_CODE_COORDINATOR_MODE=1 \
-CLAUDE_CODE_SIMPLE=1 bun run dev
+CLAUDE_CODE_SIMPLE=1 pnpm run dev
 ```
 
 ## 六、文件索引

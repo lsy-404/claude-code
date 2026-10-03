@@ -80,7 +80,7 @@ DiscoverSkills 工具触发 [需要实现]
 
 ```bash
 # 启用 feature（需要补全后才能真正使用）
-FEATURE_EXPERIMENTAL_SKILL_SEARCH=1 bun run dev
+FEATURE_EXPERIMENTAL_SKILL_SEARCH=1 pnpm run dev
 ```
 
 ## 六、文件索引

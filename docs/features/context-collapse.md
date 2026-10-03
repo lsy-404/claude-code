@@ -121,10 +121,10 @@ SnipTool 提供手动折叠能力：
 
 ```bash
 # 启用 context collapse
-FEATURE_CONTEXT_COLLAPSE=1 bun run dev
+FEATURE_CONTEXT_COLLAPSE=1 pnpm run dev
 
 # 启用 snip 子功能
-FEATURE_CONTEXT_COLLAPSE=1 FEATURE_HISTORY_SNIP=1 bun run dev
+FEATURE_CONTEXT_COLLAPSE=1 FEATURE_HISTORY_SNIP=1 pnpm run dev
 ```
 
 ## 六、文件索引

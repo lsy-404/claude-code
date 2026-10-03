@@ -8,7 +8,7 @@
  * Usage:
  *   node scripts/postinstall.js
  *   node scripts/postinstall.js --force
- *   bun run scripts/postinstall.js
+ *   pnpm exec bun run scripts/postinstall.cjs
  */
 
 const { existsSync, mkdirSync, readFileSync, renameSync, rmSync, statSync, writeFileSync, chmodSync } =
